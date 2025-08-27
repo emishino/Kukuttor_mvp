@@ -1,8 +1,10 @@
-// src/app/page.tsx
 import Nav from "./_components/Nav";
 import Footer from "./_components/Footer";
 import ContactForm from "./_components/ContactForm";
-
+import JobList from "./_components/JobList";
+import FAQ from "./_components/FAQ";
+import CTA from "./_components/CTA";
+import Roadmap from "./_components/Roadmap";
 export default function Home() {
   return (
     <>
@@ -35,6 +37,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border rounded-2xl p-6 shadow-sm">
+            {/* ここは簡易モック（後で実画面に差し替え） */}
             <div className="aspect-video rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 grid place-items-center">
               <span className="text-slate-500">案件カード UI モック</span>
             </div>
@@ -50,7 +53,10 @@ export default function Home() {
             { title: "即応募", desc: "気になった案件にワンクリックで応募（予定）。" },
             { title: "スキルタグ", desc: "React / Python など保有スキルで簡単マッチ。" },
           ].map((f) => (
-            <div key={f.title} className="rounded-2xl bg-white p-6 shadow-sm border">
+            <div
+              key={f.title}
+              className="rounded-2xl bg-white p-6 shadow-sm border"
+            >
               <h3 className="font-bold text-lg">{f.title}</h3>
               <p className="mt-2 text-slate-600">{f.desc}</p>
             </div>
@@ -62,18 +68,23 @@ export default function Home() {
       <section id="how" className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="text-2xl font-bold">使い方（MVP）</h2>
         <ol className="mt-6 grid gap-4 sm:grid-cols-3">
-          {["アカウント作成（予定）", "案件を検索", "気に入った案件に応募（予定）"].map((s, i) => (
-            <li key={i} className="rounded-2xl border p-5">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white font-bold">
-                {i + 1}
-              </span>
-              <p className="mt-3">{s}</p>
-            </li>
-          ))}
+          {["アカウント作成（予定）", "案件を検索", "気に入った案件に応募（予定）"].map(
+            (s, i) => (
+              <li key={i} className="rounded-2xl border p-5">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white font-bold">
+                  {i + 1}
+                </span>
+                <p className="mt-3">{s}</p>
+              </li>
+            )
+          )}
         </ol>
       </section>
-
-      {/* Contact (dummy) */}
+<JobList />
+<Roadmap />
+<FAQ />
+<CTA />
+      {/* Contact */}
       <section id="contact" className="bg-white border-t">
         <div className="mx-auto max-w-3xl px-4 py-14">
           <h2 className="text-2xl font-bold">お問い合わせ</h2>
